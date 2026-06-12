@@ -5,6 +5,8 @@ import br.com.kaivi.service.ProcessadorKaivi;
 import br.com.kaivi.service.SessaoKaivi;
 import br.com.kaivi.util.FormatadorKaivi;
 
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,7 +17,9 @@ public class Main {
     private static final List<SessaoKaivi> sessoes    = new ArrayList<>();
     private static final Scanner scanner              = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8));
+        System.setErr(new PrintStream(System.err, true, StandardCharsets.UTF_8));
         exibirBanner();
         boolean rodando = true;
 

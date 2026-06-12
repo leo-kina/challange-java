@@ -29,9 +29,9 @@ public class AnalisadorSentimento extends AnalisadorBase {
                 "⚠️  Cliente em avaliação competitiva — risco real de perda");
         SINAIS_CHURN.put(new String[]{"não mencione", "não fale pro", "sigilo", "confidencial"},
                 "⚠️  Pedido de sigilo — pode indicar tensão política interna");
-        SINAIS_CHURN.put(new String[]{"roi", "retorno sobre", "não vejo resultado"},
+        SINAIS_CHURN.put(new String[]{"roi negativo", "retorno sobre investimento negativo", "nao vejo resultado", "não vejo resultado"},
                 "⚠️  Questionamento de ROI — preparar case de valor urgente");
-        SINAIS_CHURN.put(new String[]{"lento", "demora", "atraso", "trava"},
+        SINAIS_CHURN.put(new String[]{"sistema travando", "sistema lento", "lentidao do sistema", "lentidão do sistema", "sistema caindo", "desempenho ruim"},
                 "⚠️  Reclamação de performance — verificar SLA e abrir incidente");
     }
 
