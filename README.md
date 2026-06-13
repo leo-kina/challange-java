@@ -129,12 +129,13 @@ O `AnalisadorSentimento` opera com dois conjuntos de dados:
 
 **Gatilhos de churn** (cada um gera um alerta específico):
 ```
-"cancelar"       → 🚨 Acionar Customer Success imediatamente
-"frustrado"      → 🔴 Escalar para gerência
-"sofrendo"       → 🔴 Abrir chamado técnico
-"testando outro" → ⚠️  Cliente em avaliação competitiva
-"não mencione"   → ⚠️  Tensão política interna
-"lento / trava"  → ⚠️  Reclamação de performance
+"cancelar"              → 🚨 Acionar Customer Success imediatamente
+"frustrado"             → 🔴 Escalar para gerência
+"sofrendo"              → 🔴 Abrir chamado técnico
+"testando outro"        → ⚠️  Cliente em avaliação competitiva
+"não mencione"          → ⚠️  Tensão política interna
+"roi negativo"          → ⚠️  Questionamento de ROI — preparar case de valor
+"lentidao do sistema"   → ⚠️  Reclamação de performance — verificar SLA
 ```
 
 A classificação final:
@@ -210,18 +211,27 @@ src/main/java/br/com/kaivi/
 
 ## ⚡ Como Compilar e Executar
 
-**Pré-requisito:** Java JDK 17 ou superior instalado.
+**Pré-requisito:** Java JDK 17 ou superior instalado. O projeto usa **Maven** (`pom.xml`) para que IDEs como IntelliJ IDEA reconheçam a estrutura automaticamente.
 
-### Compilar
+### ▶️ Opção 1 — IntelliJ IDEA (Recomendado)
+
+1. Abra o IntelliJ → **File → Open** → selecione a pasta do projeto
+2. O IntelliJ detecta o `pom.xml` automaticamente. Aceite o import Maven
+3. Abra `src/main/java/br/com/kaivi/main/Main.java`
+4. Clique no botão ▶️ verde ao lado da classe → **Run 'Main.main()'**
+
+### 🖥️ Opção 2 — Terminal (linha de comando)
+
 ```bash
+# Compilar
 mkdir bin
-javac -d bin -sourcepath src/main/java src/main/java/br/com/kaivi/main/Main.java
+javac -encoding UTF-8 -d bin -sourcepath src/main/java src/main/java/br/com/kaivi/main/Main.java
+
+# Executar
+java -Dfile.encoding=UTF-8 -cp bin br.com.kaivi.main.Main
 ```
 
-### Executar
-```bash
-java -cp bin br.com.kaivi.main.Main
-```
+> **Nota:** A flag `-Dfile.encoding=UTF-8` garante que emojis e acentos sejam exibidos corretamente no terminal Windows.
 
 ---
 
@@ -267,10 +277,10 @@ E o ranking consolidado com todos os leads:
 ══════════════════════════════════════════════════════════════
   ID       Vendedor           Cliente            Score
 ──────────────────────────────────────────────────────────────
-  A1B2C3D4 Ana Lima           Carlos Mendez       10/10
-  E5F6G7H8 Marcos Silva       Beatriz Costa        8/10
-  I9J0K1L2 Julia Torres       James Wright         6/10
-  M3N4O5P6 Pedro Rocha        Sofia Alves          2/10
+  A1B2C3   Ana Lima           Carlos Mendez       10/10
+  B2C3D4   Marcos Silva       Beatriz Costa       10/10
+  C3D4E5   Julia Torres       James Wright         7/10
+  D4E5F6   Pedro Rocha        Sofia Alves          0/10
 ══════════════════════════════════════════════════════════════
 ```
 

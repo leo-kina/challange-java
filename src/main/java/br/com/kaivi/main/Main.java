@@ -42,7 +42,7 @@ public class Main {
 
     private static void exibirBanner() {
         System.out.println("╔══════════════════════════════════════════════════════════╗");
-        System.out.println("║                     KAIVI.AL  v1.0                      ║");
+        System.out.println("║                     KAIVI.AI  v1.0                      ║");
         System.out.println("║   Seu assistente invisivel de reunioes de negocios       ║");
         System.out.println("║   Foca 100% na negociacao. O Kaivi anota tudo.           ║");
         System.out.println("╚══════════════════════════════════════════════════════════╝");
@@ -53,7 +53,7 @@ public class Main {
 
     private static void exibirMenu() {
         System.out.println("  ┌──────────────────────────────────┐");
-        System.out.println("  │          MENU KAIVI.AL           │");
+        System.out.println("  │          MENU KAIVI.AI          │");
         System.out.println("  ├──────────────────────────────────┤");
         System.out.println("  │  1. Analisar reuniao manual      │");
         System.out.println("  │  2. Executar exemplos            │");
